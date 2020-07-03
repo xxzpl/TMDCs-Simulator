@@ -1,0 +1,84 @@
+!&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+!
+! only change the number arfer "="
+! Ndeltax is the Dimension of DOS(0:Ndeltax);  
+! NKnumberBZ is the NO. of
+! lines in Y axis.
+! 0--Graphene; 1--MoS2;  2--WS2;  3--MoSe2;  4--WSe2
+!
+! kappa of siO2 3.9
+!
+! read stars from 21th line in input.txt
+
+
+
+!&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!         %%%         INPUT        %%%
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+SetTransitionMetalDichalcogenides=3
+NKnumberBZ=150
+Ndeltax=40000
+Nlayer=1
+Bandstructure0_Windows_Y0= -3
+Bandstructure0_Windows_Y1= 3
+Gap1_Windows_Y0= -1.0
+Gap1_Windows_Y1= 2.2
+RNprime(unit/~E13.cm^{-2})= 20.0
+Eerror of Precision(*deltax)=  0.1
+Doping_way= 1
+kappa= 3.9
+Icalculatepolarizationfunction=0
+
+
+
+
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!         %%%         END INPUT        %%%
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!====
+
+kappa= 2.45   
+
+     RNprime (unit/~E13.cm^{-2} )=  2.100
+     Eerror of Eprecision=                     0.04
+	 E0error(unit/deltaX)=          1.0
+	
+	
+     RNprime (unit/~E13.cm^{-2} )=  2.000
+     Eerror of Eprecision=                     0.04
+	 E0error(unit/deltaX)=          1.0	 
+	 
+	 
+     RNprime (unit/~E13.cm^{-2} )=  2.5000
+     Eerror of Eprecision=                     0.06
+	 E0error(unit/deltaX)=          1.0
+
+
+     RNprime (unit/~E13.cm^{-2} )=  2.8000
+     Eerror of Eprecision=                     0.1
+	 E0error(unit/deltaX)=          1.0
+	 
+
+     RNprime (unit/~E13.cm^{-2} )=  3.000
+     Eerror of Eprecision=                     0.3
+	 E0error(unit/deltaX)=          1.0	 
+	 
+	 
+     RNprime (unit/~E13.cm^{-2} )=  4.000
+     Eerror of Eprecision=                     0.1
+	 E0error(unit/deltaX)=          1.0	 
+	 
+	 
+     RNprime (unit/~E13.cm^{-2} )=  5.000
+     Eerror of Eprecision=                     0.3
+	 E0error(unit/deltaX)=          1.0
+	 
+
+     RNprime (unit/~E13.cm^{-2} )=  15.000
+     Eerror of Eprecision=                     0.4
+	 E0error(unit/deltaX)=          1.0	 
+	 
+	 

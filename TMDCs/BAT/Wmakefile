@@ -1,0 +1,72 @@
+DEST      = .
+EXTHDRS         =
+HDRS            =
+MAKEFILE  = Makefile
+
+
+FC        = ifort
+FFLAGS    =  /nologo /O2 /nodebug /nocheck /heap-arrays
+#DFLAGS    =  /check:bounds /traceback
+DFLAGS    =  /traceback  /check:all /F0x2000000
+CFLAGS    =  /c
+#PFLAGS    =  /Qopenmp ##/Qopenmp-report1
+MODS      = -mod .
+LDFLAGS   =  /link /nologo /incremental:no 
+LIBS      = # %winter%\lib.i64\winter.lib user32.lib gdi32.lib comdlg32.lib winspool.lib winmm.lib shell32.lib opengl32.lib glu32.lib advapi32.lib htmlhelp.lib
+LIBS      = mkl_lapack95_lp64.lib mkl_intel_lp64.lib mkl_intel_thread.lib mkl_core.lib libiomp5md.lib
+OUT       = /out:$(@B).exe
+
+DUMMIES   = # getcl.f90
+LFDUMMIES   = # lf95support.f90
+
+.SUFFIXES: # clear
+.SUFFIXES: .exe .mod .obj .f90
+.f90.obj:
+          $(FC) $(FFLAGS) $(DFLAGS) $(PFLAGS) $(CFLAGS) $<
+
+OBJ0 =  LIBRARY.f90 time.f90 TshoppingIV_SMO.f90  TshoppingII.f90 wavenumbers.f90 HamiltonianVII_SMO.f90
+OBJ1 =  plotparameters.f90  HMdata.f90 HamiltonianVII_SMODATA.f90 readfile.f90
+
+all:  TMD  
+
+TMD:  module1.f90 module2.f90  main.f90 $(OBJ0) $(OBJ1) $(LFDUMMIES) 
+	$(FC) $(FFLAGS) $(DFLAGS) $(PFLAGS) $(**)  $(LIBS)  $(LDFLAGS) $(OUT) 
+
+HoppingValus:  module1.f90 module2.f90 LIBRARY.f90 HoppingValus.f90 $(LFDUMMIES) 
+	$(FC) $(FFLAGS) $(DFLAGS) $(PFLAGS) $(**)  $(LIBS)  $(LDFLAGS) $(OUT) 
+
+
+module1: module1.f90
+	 $(FC) $(FFLAGS) $(DFLAGS) $(PFLAGS) $(CFLAGS) $(**)
+module2: module2.f90
+	$(FC) $(FFLAGS) $(DFLAGS) $(PFLAGS) $(CFLAGS) $(**)	
+ 
+
+
+!CMDSWITCHES +I
+cleanup:
+          @del fort.*
+          @del *.out
+          @del *.obj
+          @del *.mod
+          @del *.eps
+          @del *.plt	  
+          @del *.pdf
+		  @del *.dat
+          @del *.py
+cleanall:
+          @del fort.*
+          @del *.out
+          @del *.obj
+          @del *.mod
+          @del *.eps
+          @del *.plt	  
+          @del *.exe
+          @del *.pdf
+		  @del *.dat
+          @del *.py
+
+
+
+
+		  

@@ -1,0 +1,32 @@
+#!/bin/bash
+
+FC="gfortran"
+EXT="f90"
+OBF="o"
+
+FFLAGS="-ffree-line-length-none  -fno-range-check -O2"
+PFLAGS="-fopenmp"
+LIBS="-llapack -lblas"
+
+MDL_FILES=" module1.$EXT module2.$EXT paixumodule.$EXT"
+
+SRC1=" LIBRARY.$EXT time.$EXT TshoppingIV_SMO.$EXT  TshoppingII.$EXT wavenumbers.$EXT HamiltonianVII_SMO.$EXT" 
+
+SRC2=" plotparameters.$EXT  HamiltonianVII_SMODATA2.$EXT readfile.$EXT"
+
+
+OBJ0=" module1.$OBF module2.$OBF paixumodule.$OBF"
+
+OBJ1=" LIBRARY.$OBF time.$OBF TshoppingIV_SMO.$OBF  TshoppingII.$OBF wavenumbers.$OBF HamiltonianVII_SMO.$OBF" 
+
+OBJ2=" plotparameters.$OBF  HamiltonianVII_SMODATA2.$OBF readfile.$OBF"
+
+$FC $FFLAGS $PFLAGS -c $MDL_FILES $LIBS
+
+$FC $FFLAGS $PFLAGS -c main.$EXT $SRC1 $SRC2 $OBJ0  $LIBS
+
+$FC $FFLAGS $PFLAGS -o TMDC.exe main.$OBF $OBJ0 $OBJ1 $OBJ2  $LIBS 
+
+rm -f *.o
+rm -f *.mod
+
